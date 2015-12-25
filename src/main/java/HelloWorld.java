@@ -1,9 +1,10 @@
-import resourceClasses.FileResource;
+import edu.duke.URLResource;
 
 public class HelloWorld {
   public void runHello() {
-    FileResource hello = new FileResource("hello_unicode.txt");
-    for (String line : hello.lines()) {
+//    FileResource resource = new FileResource("hello_unicode.txt");
+    URLResource resource = new URLResource("http://nytimes.com");
+    for (String line : resource.lines()) {
       System.out.println(line);
     }
   }

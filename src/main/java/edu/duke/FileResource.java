@@ -1,4 +1,4 @@
-package resourceClasses;
+package edu.duke;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +17,7 @@ import org.apache.commons.csv.CSVParser;
 
 
 /**
- * The <code>resourceClasses.FileResource</code> class represents a file and allows access to its contents a line at
+ * The <code>FileResource</code> class represents a file and allows access to its contents a line at
  * a time, using the method <code>lines</code>, or a word at a time, using the method
  * <code>words</code>. These strings can then be iterated over using a <code>for</code> loop.
  * 
@@ -25,7 +25,7 @@ import org.apache.commons.csv.CSVParser;
  * Example usage:
  * 
  * <PRE>
- * resourceClasses.FileResource fr = new resourceClasses.FileResource();
+ * FileResource fr = new FileResource();
  * for (String s : fr.words()) {
  *     // print or process s
  * }
@@ -40,7 +40,7 @@ import org.apache.commons.csv.CSVParser;
  * Example CSV usage:
  * 
  * <PRE>
- * resourceClasses.FileResource fr = new resourceClasses.FileResource("food.csv");
+ * FileResource fr = new FileResource("food.csv");
  * for (CSVRecord record : fr.getCSVParser()) {
  *     // print or process fields in record
  *     String name = record.get("Name");
@@ -60,7 +60,7 @@ public class FileResource {
     private File mySaveFile;
 
     /**
-     * Create a <code>resourceClasses.FileResource</code> object that opens the file chosen by the user using a file
+     * Create a <code>FileResource</code> object that opens the file chosen by the user using a file
      * selection dialog box.
      * 
      * @throws exception if no file is selected by the user
@@ -70,10 +70,10 @@ public class FileResource {
     }
 
     /**
-     * Create a <code>resourceClasses.FileResource</code> object that opens a file represented by the File object
+     * Create a <code>FileResource</code> object that opens a file represented by the File object
      * passed as a parameter.
      * 
-     * Useful, for example, when used in conjunction with the <code>resourceClasses.DirectoryResource</code> class.
+     * Useful, for example, when used in conjunction with the <code>DirectoryResource</code> class.
      * 
      * @param file the file to be represented by this resource
      * @throws exception if the file cannot be accessed
@@ -83,7 +83,7 @@ public class FileResource {
     }
 
     /**
-     * Create a <code>resourceClasses.FileResource</code> object that opens a file whose name is passed as a
+     * Create a <code>FileResource</code> object that opens a file whose name is passed as a
      * parameter.
      * 
      * The named file should be on the current class path to be found.
@@ -96,7 +96,7 @@ public class FileResource {
     }
 
     /**
-     * Create a <code>resourceClasses.FileResource</code> object that opens the file chosen by the user using a file
+     * Create a <code>FileResource</code> object that opens the file chosen by the user using a file
      * selection dialog box, possibly to write to it.
      * 
      * If the user wants to change the contents of the open file by using the method
@@ -116,14 +116,14 @@ public class FileResource {
     }
 
     /**
-     * Create a <code>resourceClasses.FileResource</code> object that opens a file represented by the File object
+     * Create a <code>FileResource</code> object that opens a file represented by the File object
      * passed as a parameter, possibly to write to it.
      * 
      * If the user wants to change the contents of the open file by using the method
      * <code>write</code> to add new strings to it, pass <code>true</code> as the second parameter.
      * Otherwise it is assumed the user will only iterate over the existing contents of the file.
      * 
-     * Useful, for example, when used in conjunction with the <code>resourceClasses.DirectoryResource</code> class.
+     * Useful, for example, when used in conjunction with the <code>DirectoryResource</code> class.
      * 
      * @param file the file to be represented by this resource
      * @param writable allow changes to this file only if true
@@ -139,7 +139,7 @@ public class FileResource {
     }
 
     /**
-     * Create a <code>resourceClasses.FileResource</code> object that opens a file whose name is passed as a
+     * Create a <code>FileResource</code> object that opens a file whose name is passed as a
      * parameter, possibly to write to it.
      * 
      * If the user wants to change the contents of the open file by using the method
@@ -238,7 +238,7 @@ public class FileResource {
      */
     public CSVParser getCSVParser (boolean withHeader, String delimiter) {
         if (delimiter == null || delimiter.length() != 1) {
-            throw new ResourceException("resourceClasses.FileResource: CSV delimiter must be a single character: " + delimiter);
+            throw new ResourceException("FileResource: CSV delimiter must be a single character: " + delimiter);
         }
         try {
             char delim = delimiter.charAt(0);
@@ -251,7 +251,7 @@ public class FileResource {
             }
         }
         catch (Exception e) {
-            throw new ResourceException("resourceClasses.FileResource: cannot read " + myPath + " as a CSV file.");
+            throw new ResourceException("FileResource: cannot read " + myPath + " as a CSV file.");
         }
     }
 
@@ -318,7 +318,7 @@ public class FileResource {
                 writer.println(sb.toString());
             }
             catch (Exception e) {
-                throw new ResourceException("resourceClasses.FileResource: cannot change " + mySaveFile);
+                throw new ResourceException("FileResource: cannot change " + mySaveFile);
             }
         }
     }
@@ -327,7 +327,7 @@ public class FileResource {
     private void initRead () {
         File f = FileSelector.selectFile();
         if (f == null) {
-            throw new ResourceException("resourceClasses.FileResource: no file choosen for reading");
+            throw new ResourceException("FileResource: no file choosen for reading");
         }
         else {
             initRead(f);
@@ -340,7 +340,7 @@ public class FileResource {
             initRead(f.getCanonicalPath());
         }
         catch (Exception e) {
-            throw new ResourceException("resourceClasses.FileResource: cannot access " + f);
+            throw new ResourceException("FileResource: cannot access " + f);
         }
     }
 
@@ -355,7 +355,7 @@ public class FileResource {
             mySource = initFromStream(is);
         }
         catch (Exception e) {
-            throw new ResourceException("resourceClasses.FileResource: cannot access " + fname);
+            throw new ResourceException("FileResource: cannot access " + fname);
         }
     }
 
@@ -370,7 +370,7 @@ public class FileResource {
             return contents.toString();
         }
         catch (Exception e) {
-            throw new ResourceException("resourceClasses.FileResource: error encountered reading " + myPath, e);
+            throw new ResourceException("FileResource: error encountered reading " + myPath, e);
         }
     }
 
@@ -378,7 +378,7 @@ public class FileResource {
     private void initWrite () {
         File f = FileSelector.saveFile();
         if (f == null) {
-            throw new ResourceException("resourceClasses.FileResource: no file choosen for writing");
+            throw new ResourceException("FileResource: no file choosen for writing");
         }
         else {
             initWrite(f);
@@ -398,7 +398,7 @@ public class FileResource {
             }
         }
         catch (Exception e) {
-            throw new ResourceException("resourceClasses.FileResource: cannot access " + f, e);
+            throw new ResourceException("FileResource: cannot access " + f, e);
         }
     }
 
@@ -412,7 +412,7 @@ public class FileResource {
             initWrite(new File(fname));
         }
         catch (Exception e) {
-            throw new ResourceException("resourceClasses.FileResource: cannot access " + fname);
+            throw new ResourceException("FileResource: cannot access " + fname);
         }
     }
 }

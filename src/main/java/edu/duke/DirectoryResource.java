@@ -1,4 +1,4 @@
-package resourceClasses;
+package edu.duke;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 
 /**
- * The <code>resourceClasses.DirectoryResource</code> class allows the user to choose one or more files from a
+ * The <code>DirectoryResource</code> class allows the user to choose one or more files from a
  * directory (or folder) with a file selection dialog box by using the method
  * <code>selectedFiles</code>. These files can then be iterated over using a <code>for</code> loop.
  * 
@@ -14,7 +14,7 @@ import java.util.Arrays;
  * Example usage:
  * 
  * <PRE>
- * resourceClasses.DirectoryResource dr = new resourceClasses.DirectoryResource();
+ * DirectoryResource dr = new DirectoryResource();
  * for (File f : dr.selectedFiles()) {
  *     ImageResource ir = new ImageResource(f);
  *     ir.draw();
@@ -29,9 +29,9 @@ import java.util.Arrays;
  */
 public class DirectoryResource {
     /**
-     * Create a <code>resourceClasses.DirectoryResource</code> object.
+     * Create a <code>DirectoryResource</code> object.
      * 
-     * Creating a <code>resourceClasses.DirectoryResource</code> object does not open a dialog box for selecting
+     * Creating a <code>DirectoryResource</code> object does not open a dialog box for selecting
      * files.
      */
     public DirectoryResource () {

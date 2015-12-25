@@ -1,4 +1,4 @@
-package resourceClasses;
+package edu.duke;
 
 import java.awt.Color;
 import java.awt.Container;

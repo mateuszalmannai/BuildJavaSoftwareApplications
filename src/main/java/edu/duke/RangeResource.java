@@ -1,4 +1,4 @@
-package resourceClasses;
+package edu.duke;
 
 import java.util.List;
 import java.util.ArrayList;

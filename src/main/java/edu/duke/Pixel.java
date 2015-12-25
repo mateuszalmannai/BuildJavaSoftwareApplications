@@ -1,4 +1,4 @@
-package resourceClasses;
+package edu.duke;
 
 /**
  * The <code>Pixel</code> class represents a color as its component values of

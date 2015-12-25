@@ -1,4 +1,4 @@
-package resourceClasses;
+package edu.duke;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +18,7 @@ import java.util.List;
  * Example usage:
  * 
  * <PRE>
- * resourceClasses.FileResource fr = new resourceClasses.FileResource();
+ * FileResource fr = new FileResource();
  * StorageResource store = new StorageResource();
  * for (String s : fr.words()) {
  *     store.add(s);
