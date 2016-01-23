@@ -1,3 +1,5 @@
+package week1;
+
 import edu.duke.URLResource;
 
 public class HelloWorld {

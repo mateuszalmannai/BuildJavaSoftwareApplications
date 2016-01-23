@@ -1,3 +1,5 @@
+package week1;
+
 import edu.duke.DirectoryResource;
 import edu.duke.ImageResource;
 import edu.duke.Pixel;
